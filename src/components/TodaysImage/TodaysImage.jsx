@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { View, Image, StyleSheet, Text, Button } from "react-native";
 import { getNASAContext } from "../../../context/GetNASAContext";
+import { getNASA5DaysContext } from "../../../context/GetNASA5DaysContext";
 
 const TodaysImage = () => {
   const { nasaResponse } = useContext(getNASAContext);
-  console.log("RESPUESTA", nasaResponse ? nasaResponse.date : null);
+  const { nasaResponse5Days } = useContext(getNASA5DaysContext)
+  console.log("5 DIAS",nasaResponse5Days)
+  
 
   return (
     <View style={styles.container}>

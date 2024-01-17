@@ -1,9 +1,11 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import GetNASAProvider from './context/GetNASAContext'
+import GetNASA5DaysProvider from "./context/GetNASA5DaysContext";
 import Home from './src/components/views/Home'
 
 const App = () => {
   return (
+    <GetNASA5DaysProvider>
     <GetNASAProvider>
 
     <SafeAreaView style={styles.container}>
@@ -11,6 +13,7 @@ const App = () => {
     </SafeAreaView>
 
     </GetNASAProvider>
+    </GetNASA5DaysProvider>
   );
 };
 export default App;
