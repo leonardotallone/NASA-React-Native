@@ -1,18 +1,18 @@
 import { SafeAreaView, StyleSheet } from "react-native";
-import GetNASAProvider from './context/GetNASAContext'
+import GetNASAProvider from "./context/GetNASAContext";
 import GetNASA5DaysProvider from "./context/GetNASA5DaysContext";
-import Home from './src/components/views/Home'
+import Routes from "./Routes";
 
 const App = () => {
   return (
     <GetNASA5DaysProvider>
-    <GetNASAProvider>
+      <GetNASAProvider>
+        
+        <SafeAreaView style={styles.container}>
+          <Routes />
+        </SafeAreaView>
 
-    <SafeAreaView style={styles.container}>
-      <Home />
-    </SafeAreaView>
-
-    </GetNASAProvider>
+      </GetNASAProvider>
     </GetNASA5DaysProvider>
   );
 };
@@ -21,7 +21,6 @@ export default App;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'rgba(7,26,93,255)'
+    backgroundColor: "rgba(7,26,93,255)",
   },
-
 });

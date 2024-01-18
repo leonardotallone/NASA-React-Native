@@ -1,17 +1,25 @@
 // import { useState, useEffect, useContext } from "react";
-import { View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import Header from "../Header";
 import TodaysImage from "../TodaysImage/TodaysImage";
-// import { getNASAContext } from "../../../context/GetNASAContext";
+import LastFiveDaysImages from "../LastFiveDaysImages/LastFiveDaysImages";
 
 const Home = () => {
-  // const { nasaResponse } = useContext(getNASAContext);
-
   return (
-    <View>
+    <View style={styles.container}>
       <Header />
       <TodaysImage />
+      <LastFiveDaysImages />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor:"rgba(7,26,93,255)",
+  },
+ 
+});
+
 export default Home;

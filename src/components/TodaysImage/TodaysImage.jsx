@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import { View, Image, StyleSheet, Text, Button } from "react-native";
 import { getNASAContext } from "../../../context/GetNASAContext";
-import { getNASA5DaysContext } from "../../../context/GetNASA5DaysContext";
+
+import { useNavigation } from "@react-navigation/native";
 
 const TodaysImage = () => {
   const { nasaResponse } = useContext(getNASAContext);
-  const { nasaResponse5Days } = useContext(getNASA5DaysContext)
-  console.log("5 DIAS",nasaResponse5Days)
-  
+
+ const {navigate} = useNavigation()
+
+ const handleViewPress = (nasaResponse) => {
+  navigate("Details", { nasaResponse });
+  };
 
   return (
     <View style={styles.container}>
@@ -20,7 +24,7 @@ const TodaysImage = () => {
       </Text>
       <Text style={styles.date}>{nasaResponse ? nasaResponse.date : null}</Text>
       <View style={styles.button}>
-        <Button title="View" />
+      <Button title="View" onPress={() => handleViewPress(nasaResponse)} />
       </View>
     </View>
   );
@@ -28,6 +32,7 @@ const TodaysImage = () => {
 
 const styles = StyleSheet.create({
   container: {
+    
     backgroundColor: "#2c449d",
     marginVertical: 16,
     borderRadius: 32,
